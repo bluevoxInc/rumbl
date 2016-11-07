@@ -17,3 +17,7 @@ config :rumbl, Rumbl.Repo,
   database: "rumbl_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+# Drops test time from 6.3 seconds to 0.5 seconds for 27 tests by reducingthe password hashing process for testing purposes.
+config :comeonin, :bcrypt_log_rounds, 4
+config :comeonin, :pbkdf2_rounds, 1

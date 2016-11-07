@@ -11,7 +11,7 @@ defmodule Rumbl.Authentication do
   def call(conn, repo) do
     user_id = get_session(conn, :user_id)
     cond do
-    #note the first condition accepts a user value if it's assigned in :current_user regardless of how it got there. This is to facilitate testing (see page 137). I am not so sure about the security of this.
+    #note the first condition accepts a user value if it's assigned in :current_user regardless of how it got there. This is to facilitate testing (see page 137). I am not so sure about the security of this for a production application.
       user = conn.assigns[:current_user] ->
         conn
       user = user_id && repo.get(Rumbl.User, user_id) ->
