@@ -1,9 +1,11 @@
 defmodule Rumbl.VideoControllerTest do
+  # require Logger
   use Rumbl.ConnCase
 
   alias Rumbl.Video
-  @valid_attrs %{url: "http://youtu.be", title: "vid", description: "a vid"}
-  @invalid_attrs %{title: "invalid"}
+  @valid_attrs %{description: "some content", title: "some content", url: "some content"}
+
+  @invalid_attrs %{}
 
   defp video_count(query), do: Repo.one(from v in query, select: count(v.id))
 
@@ -50,8 +52,14 @@ defmodule Rumbl.VideoControllerTest do
   test "update user video and redirects when using valid data", %{conn: conn, user: user} do
     user_video = insert_user_video user
     conn = put conn, video_path(conn, :update, user_video), video: @valid_attrs
-    assert redirected_to(conn) == video_path(conn, :show, user_video)
-    assert Repo.get_by!(Video, @valid_attrs)
+
+    user_video_mod = Repo.get_by!(Video, @valid_attrs)
+    assert user_video.id == user_video_mod.id
+
+    # Logger.debug "*****DEBUGGING******** #{inspect Repo.get_by!(Video, @valid_attrs)}"
+    # Logger.debug "*****DEBUGGING******** #{inspect user_video}"
+
+    assert redirected_to(conn) == video_path(conn, :show, user_video_mod)
   end
 
   @tag login_as: "gilligan"
