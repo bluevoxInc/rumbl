@@ -1,5 +1,13 @@
 # Rumbl
 
+A video annotation application written in Elixir/Phoenix. This code is based on the first 11 chapters of the Programming Phoenix book, v.P1.0 --April 2016.
+
+NOTE: You should edit the line:
+
+config :rumbl, :wolfram, app_id: "XXXXXX-XXXXXXXXXX"
+
+in config/dev.secret.exs to add your own Wolfram-Alpha id for the InfoSys component of this app to run properly.
+
 To start your Phoenix app:
 
   * Install dependencies with `mix deps.get`
@@ -9,12 +17,3 @@ To start your Phoenix app:
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
-
-## Learn more
-
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
