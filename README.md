@@ -2,11 +2,11 @@
 
 A video annotation application written in Elixir/Phoenix. This code is based on the first 11 chapters of the Programming Phoenix book, v.P1.0 --April 2016.
 
-NOTE: You should edit the line:
+NOTE: You must rename the config/dev.secret.dist to config/dev.secret and edit the line:
 
 config :rumbl, :wolfram, app_id: "XXXXXX-XXXXXXXXXX"
 
-in config/dev.secret.exs to add your own Wolfram-Alpha id for the InfoSys component of this app to run properly.
+to add your own Wolfram-Alpha id for the InfoSys component of this app to run properly.
 
 To start your Phoenix app:
 
